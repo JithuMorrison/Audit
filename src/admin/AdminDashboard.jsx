@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   useEffect(() => {
       const fetchAudits = async () => {
         try {
-          const response = await fetch('http://localhost:3000/audits');
+          const response = await fetch('http://localhost:5000/audits');
           const data = await response.json();
           setAudits(data);
         } catch (error) {
@@ -44,7 +44,7 @@ const AdminDashboard = () => {
       };
 
       try {
-        const response = await axios.post('http://localhost:3000/insert_audit', formattedAudit);
+        const response = await axios.post('http://localhost:5000/insert_audit', formattedAudit);
         if (response.status === 201) {
           setAudits([...audits, formattedAudit]);
           setNewAudit({ name: '', location: '', longitude: '', latitude: '', time: '' });

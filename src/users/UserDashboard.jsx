@@ -7,11 +7,12 @@ const UserDashboard = () => {
   const [audits, setAudits] = useState([]);
   const [registeredAudits, setRegisteredAudits] = useState([]);
   const nav = useNavigate();
+
   useEffect(() => {
     const fetchAudits = async () => {
       try {
-        const response = await fetch('http://localhost:3000/audits');
-        const resp = await fetch('http://localhost:3000/search_audits?name=jithu');
+        const response = await fetch('http://localhost:5000/audits');
+        const resp = await fetch('http://localhost:5000/search_audits?name=jithu');
         const data = await response.json();
         const data1 = await resp.json();
         setRegisteredAudits(data1);
@@ -24,11 +25,12 @@ const UserDashboard = () => {
     fetchAudits();
   }, []);
 
+  
   const handleRegister = async (audit) => {
     if (!registeredAudits.some((item) => item.name === audit.name)) {
       try {
         setRegisteredAudits([...registeredAudits, audit]);
-        const response = await fetch(`http://localhost:3000/update_audit/${audit._id}`, {
+        const response = await fetch(`http://localhost:5000/update_audit/${audit._id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

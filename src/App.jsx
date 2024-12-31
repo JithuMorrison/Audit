@@ -1,13 +1,14 @@
 import './App.css'
-import Home from './Home'
-import Login from './LoginPage';
-import RegisterPage from './RegisterPage'
+import Home from './common/Home'
+import Login from './common/LoginPage';
+import RegisterPage from './common/RegisterPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UserDashboard from './UserDashboard';
-import AdminDashboard from './AdminDashboard';
+import UserDashboard from './users/UserDashboard';
+import AdminDashboard from './admin/AdminDashboard';
+import './index.css';
+
 
 function App() {
-
   return (
     <Router>
       <Routes>
@@ -19,6 +20,7 @@ function App() {
       </Routes>
     </Router>
   )
+  //this is the main app.jsx where we create our routers and routes
 }
 
 export default App
